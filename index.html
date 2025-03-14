@@ -346,10 +346,154 @@
 
 <!-- this section is missing the styling, will it still work?  -->
 
+<style>
+    :root {
+        --primary-color: #4a6741;
+        --bubble-bg: #f5f9e9;
+        --text-color: #333;
+        --hover-color: #e0e9c5;
+        --border-color: #ddd;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: #f0f0f0;
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1rem;
+    }
+
+    .section-header .dot {
+        width: 16px;
+        height: 16px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .intro-text {
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+        max-width: 800px;
+    }
+
+    .services-grid {
+        display: grid;
+        /* Adjusted to fit more bubbles per row since they're smaller */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .service-bubble {
+        background-color: var(--bubble-bg);
+        border-radius: 6px;
+        /* Reduced padding by 50% */
+        padding: 1rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--border-color);
+    }
+
+    .service-bubble:hover, .service-bubble:focus {
+        background-color: var(--hover-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-bubble h3 {
+        /* Reduced font size by ~50% */
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .service-bubble p {
+        /* Reduced font size by ~50% */
+        font-size: 0.8rem;
+        flex-grow: 1;
+    }
+
+    .cta-button {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover, .cta-button:focus {
+        background-color: #3a5233;
+    }
+
+    /* Accessibility focus styles */
+    .service-bubble:focus-visible, .cta-button:focus-visible {
+        outline: 3px solid #4a90e2;
+        outline-offset: 2px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .section-header h2 {
+            font-size: 1.75rem;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
         <section id="services" class="container" aria-labelledby="services-heading">
             <div class="section-header">
-                <span class="dot" aria-hidden="true"></span>
-                <h2 id="services-heading">Services I provide</h2>
+                <h2 id="services-heading">What I can do for you</h2>
             </div>
 
             <p class="intro-text">

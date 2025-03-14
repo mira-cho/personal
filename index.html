@@ -344,158 +344,297 @@
         </html>
 
 
-<!-- this section wasn't as good and i don't want to show it anymore  -->
+<!-- this section is missing the styling, will it still work?  -->
 
-            <div class="container">
-                <div class="text-center mb-12">
-                    <h2>Prior Work</h2>
-                    <div class="section-title-bar"></div>
-                    <p class="text-muted">Here's what I've been working on</p>
-                </div>
-                <div class="grid gap-6 md:grid-cols-5">
-                    <div class="bg-white rounded-lg shadow overflow-hidden">
-                        <img src="https://placehold.co/200x200" alt="Project One" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="p-4">
-                            <h3 class="font-bold text-xl mb-2">Seed Health</h3>
-                            <p class="text-muted mb-4">Standing up the first digital product team and PED org at Seed Health, a leader in DTC microbiome sciences.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-muted text-sm px-2 py-1 rounded">Web Design</span>
-                                <span class="bg-muted text-sm px-2 py-1 rounded">Development</span>
-                                <span class="bg-muted text-sm px-2 py-1 rounded">UX</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow overflow-hidden">
-                        <img src="https://placehold.co/200x200" alt="Project Two" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="p-4">
-                            <h3 class="font-bold text-xl mb-2">Blue Apron</h3>
-                            <p class="text-muted mb-4">Building products including ML models to forecast, buy, and deliver all the food ordered from Blue Apron menus.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-muted text-sm px-2 py-1 rounded">Branding</span>
-                                <span class="bg-muted text-sm px-2 py-1 rounded">Strategy</span>
-                                <span class="bg-muted text-sm px-2 py-1 rounded">UI</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow overflow-hidden">
-                        <img src="https://placehold.co/200x200" alt="Project Three" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div class="p-4">
-                            <h3 class="font-bold text-xl mb-2">LaunchDarkly</h3>
-                            <p class="text-muted mb-4">Helping you release better software. Mira was a Senior Product Manager growing LD’s feature set and customer base, and integrations.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-muted text-sm px-2 py-1 rounded">Marketing</span>
-                                <span class="bg-muted text-sm px-2 py-1 rounded">Content</span>
-                                <span class="bg-muted text-sm px-2 py-1 rounded">SEO</span>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg shadow overflow-hidden">
-                            <img src="https://placehold.co/200x200" alt="Project One" style="width: 100%; height: 200px; object-fit: cover;">
-                            <div class="p-4">
-                                <h3 class="font-bold text-xl mb-2">Graze</h3>
-                                <p class="text-muted mb-4">Reinventing healthy snacking. Starting up the Insights and Digital Product effort as an early employee of a UK and US subscription snack delivery cmmpany.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-muted text-sm px-2 py-1 rounded">Agile</span>
-                                    <span class="bg-muted text-sm px-2 py-1 rounded">A/B testing</span>
-                                    <span class="bg-muted text-sm px-2 py-1 rounded">UX</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg shadow overflow-hidden">
-                            <img src="https://placehold.co/200x200" alt="Project One" style="width: 100%; height: 200px; object-fit: cover;">
-                            <div class="p-4">
-                                <h3 class="font-bold text-xl mb-2">Advisor</h3>
-                                <p class="text-muted mb-4">Acted as startup advisor for subscription Operations, Growth, & Analytics.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-muted text-sm px-2 py-1 rounded">Ops</span>
-                                    <span class="bg-muted text-sm px-2 py-1 rounded">Forecasting</span>
-                                    <span class="bg-muted text-sm px-2 py-1 rounded">Mentoring</span>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                </div>
+        <section id="services" class="container" aria-labelledby="services-heading">
+            <div class="section-header">
+                <span class="dot" aria-hidden="true"></span>
+                <h2 id="services-heading">Services I provide</h2>
             </div>
+
+            <p class="intro-text">
+                I deliver strategic solutions that drive product success and team effectiveness, focusing on sustainable outcomes that create lasting impact.
+            </p>
+
+            <div class="services-grid">
+                <!-- PED Teams Setup -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#ped-teams', '_self')" onkeydown="if(event.key==='Enter') window.open('#ped-teams', '_self')">
+                    <h3>PED Team Setup</h3>
+                    <p>Setting up new Product Engineering & Design teams for success with the right structure, processes, and culture.</p>
+                </article>
+
+                <!-- Experimentation Frameworks -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#experimentation', '_self')" onkeydown="if(event.key==='Enter') window.open('#experimentation', '_self')">
+                    <h3>Experimentation Frameworks</h3>
+                    <p>Establishing data-driven experimentation frameworks that enable teams to validate ideas quickly.</p>
+                </article>
+
+                <!-- Organizational Connection -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#org-connection', '_self')" onkeydown="if(event.key==='Enter') window.open('#org-connection', '_self')">
+                    <h3>Cross-Organizational Alignment</h3>
+                    <p>Connecting product initiatives to the rest of the organization to ensure seamless collaboration.</p>
+                </article>
+
+                <!-- Prioritization -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#prioritization', '_self')" onkeydown="if(event.key==='Enter') window.open('#prioritization', '_self')">
+                    <h3>Strategic Prioritization</h3>
+                    <p>Prioritizing and rallying teams around key objectives to focus efforts on high-impact initiatives.</p>
+                </article>
+
+                <!-- Product Launches -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#product-launches', '_self')" onkeydown="if(event.key==='Enter') window.open('#product-launches', '_self')">
+                    <h3>Product Launch Management</h3>
+                    <p>Managing product launches with comprehensive planning and effective go-to-market strategies.</p>
+                </article>
+
+                <!-- Roadmap Alignment -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#roadmap-alignment', '_self')" onkeydown="if(event.key==='Enter') window.open('#roadmap-alignment', '_self')">
+                    <h3>Roadmap Alignment</h3>
+                    <p>Aligning the product roadmap with overarching goals and development cycles for strategic coherence.</p>
+                </article>
+
+                <!-- Goal-Oriented Team Building -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#team-building', '_self')" onkeydown="if(event.key==='Enter') window.open('#team-building', '_self')">
+                    <h3>Goal-Oriented Team Building</h3>
+                    <p>Building cohesive teams focused on achieving specific goals through targeted development.</p>
+                </article>
+
+                <!-- Project Carve-outs -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#project-carveouts', '_self')" onkeydown="if(event.key==='Enter') window.open('#project-carveouts', '_self')">
+                    <h3>Project Carve-outs</h3>
+                    <p>Facilitating project carve-outs to create focused initiatives with clear boundaries and ownership.</p>
+                </article>
+
+                <!-- Project Definition -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#project-definition', '_self')" onkeydown="if(event.key==='Enter') window.open('#project-definition', '_self')">
+                    <h3>Project Definition</h3>
+                    <p>Defining and scoping specific projects with precision to ensure clear objectives and deliverables.</p>
+                </article>
+
+                <!-- Discovery Acceleration -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#discovery-acceleration', '_self')" onkeydown="if(event.key==='Enter') window.open('#discovery-acceleration', '_self')">
+                    <h3>Discovery Acceleration</h3>
+                    <p>Accelerating discovery and software delivery cadences to reduce time-to-market while maintaining quality.</p>
+                </article>
+
+                <!-- Development Cycle Acceleration -->
+                <article class="service-bubble" tabindex="0" onclick="window.open('#dev-acceleration', '_self')" onkeydown="if(event.key==='Enter') window.open('#dev-acceleration', '_self')">
+                    <h3>Development Cycle Acceleration</h3>
+                    <p>Accelerating development cycles through process optimization and efficient resource allocation.</p>
+                </article>
+            </div>
+
+            <a href="#contact" class="cta-button" aria-label="Learn more about my services">
+                Learn more about how I can help
+            </a>
         </section>
 
-        <section id="case-studies" class="py-20 bg-muted">
-            <div class="container">
-                <div class="text-center mb-12">
-                    <h2>Case Studies</h2>
-                    <div class="section-title-bar"></div>
-                    <p class="text-muted">Detailed examples of how I've helped clients overcome challenges and achieve their goals.</p>
-                </div>
-                <div class="grid gap-6 md:grid-cols-2">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4">Client Success Story</h3>
-                        <p class="text-muted mb-4">Company Name</p>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-bold">The Challenge</h4>
-                                <p class="text-muted">The client faced significant challenges with their digital presence, including outdated design and poor user experience.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">The Solution</h4>
-                                <p class="text-muted">I developed a comprehensive strategy that included a complete redesign of their website, focusing on user experience and conversion optimization.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">The Results</h4>
-                                <p class="text-muted">The new website resulted in a 40% increase in conversions and a 25% decrease in bounce rate within the first three months.</p>
-                            </div>
-                        </div>
-                        <a href="#" class="btn mt-4">View Full Case Study</a>
-                    </div>
-                    <div>
-                        <img src="https://placehold.co/600x400" alt="Case Study Image" class="rounded-lg" style="width: 100%; height: auto;">
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="services" class="py-20">
+        <section id="services" class="py-20 bg-muted">
             <div class="container">
                 <div class="text-center mb-12">
-                    <h2>What Can I Do For You</h2>
+                    <h2>What I can do for you</h2>
                     <div class="section-title-bar"></div>
-                    <p class="text-muted">I offer a range of services designed to help you achieve your business goals and stand out in your industry.</p>
-                </div>
-                <div class="grid gap-6 md:grid-cols-3">
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <h3 class="text-xl font-bold mb-4">Service Category 1</h3>
-                        <p class="text-muted mb-4">A comprehensive description of this service category and how it benefits clients.</p>
-                        <ul class="space-y-2">
-                            <li>Key feature or benefit 1</li>
-                            <li>Key feature or benefit 2</li>
-                            <li>Key feature or benefit 3</li>
-                            <li>Key feature or benefit 4</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <h3 class="text-xl font-bold mb-4">Service Category 2</h3>
-                        <p class="text-muted mb-4">A comprehensive description of this service category and how it benefits clients.</p>
-                        <ul class="space-y-2">
-                            <li>Key feature or benefit 1</li>
-                            <li>Key feature or benefit 2</li>
-                            <li>Key feature or benefit 3</li>
-                            <li>Key feature or benefit 4</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <h3 class="text-xl font-bold mb-4">Service Category 3</h3>
-                        <p class="text-muted mb-4">A comprehensive description of this service category and how it benefits clients.</p>
-                        <ul class="space-y-2">
-                            <li>Key feature or benefit 1</li>
-                            <li>Key feature or benefit 2</li>
-                            <li>Key feature or benefit 3</li>
-                            <li>Key feature or benefit 4</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="text-center mt-12">
-                    <p class="text-muted mb-4">Not sure which service is right for you? Let's discuss your specific needs and goals to find the perfect solution.</p>
-                    <a href="#contact" class="btn">Schedule a Consultation</a>
-                </div>
-            </div>
-        </section>
+                
+                
+                
+                    <style>
+                        :root {
+                            --primary-color: #4a6741;
+                            --bubble-bg: #f5f9e9;
+                            --text-color: #333;
+                            --hover-color: #e0e9c5;
+                            --border-color: #ddd;
+                        }
+                
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        }
+                
+                        body {
+                            background-color: #f0f0f0;
+                            color: var(--text-color);
+                            line-height: 1.6;
+                        }
+                
+                        .container {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 2rem;
+                        }
+                
+                        .section-header {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 1.5rem;
+                            border-bottom: 1px solid #ccc;
+                            padding-bottom: 1rem;
+                        }
+                
+                        .section-header .dot {
+                            width: 16px;
+                            height: 16px;
+                            background-color: var(--primary-color);
+                            border-radius: 50%;
+                            margin-right: 1rem;
+                        }
+                
+                        .section-header h2 {
+                            font-size: 2rem;
+                            font-weight: 600;
+                        }
+                
+                        .intro-text {
+                            font-size: 1.25rem;
+                            margin-bottom: 2.5rem;
+                            max-width: 800px;
+                        }
+                
+                        .contact-grid {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                            gap: 1.5rem;
+                            margin-bottom: 2.5rem;
+                        }
+                
+                        .contact-bubble {
+                            background-color: var(--bubble-bg);
+                            border-radius: 8px;
+                            padding: 2rem;
+                            transition: all 0.3s ease;
+                            cursor: pointer;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            border: 1px solid var(--border-color);
+                        }
+                
+                        .contact-bubble:hover, .contact-bubble:focus {
+                            background-color: var(--hover-color);
+                            transform: translateY(-5px);
+                            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                        }
+                
+                        .contact-bubble h3 {
+                            font-size: 1.5rem;
+                            margin-bottom: 1rem;
+                            color: var(--primary-color);
+                        }
+                
+                        .contact-bubble p {
+                            font-size: 1rem;
+                            flex-grow: 1;
+                        }
+                
+                        .contact-bubble .icon {
+                            font-size: 2rem;
+                            margin-bottom: 1rem;
+                            color: var(--primary-color);
+                        }
+                
+                        .email-button {
+                            display: block;
+                            width: 100%;
+                            max-width: 300px;
+                            margin: 0 auto;
+                            padding: 1rem;
+                            background-color: var(--primary-color);
+                            color: white;
+                            border: none;
+                            border-radius: 8px;
+                            font-size: 1.1rem;
+                            cursor: pointer;
+                            text-align: center;
+                            text-decoration: none;
+                            transition: background-color 0.3s ease;
+                        }
+                
+                        .email-button:hover, .email-button:focus {
+                            background-color: #3a5233;
+                        }
+                
+                        /* Accessibility focus styles */
+                        .contact-bubble:focus-visible, .email-button:focus-visible {
+                            outline: 3px solid #4a90e2;
+                            outline-offset: 2px;
+                        }
+                
+                        /* Responsive adjustments */
+                        @media (max-width: 768px) {
+                            .contact-grid {
+                                grid-template-columns: 1fr;
+                            }
+                            
+                            .section-header h2 {
+                                font-size: 1.75rem;
+                            }
+                            
+                            .intro-text {
+                                font-size: 1.1rem;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <main>
+                        <section id="contact" class="container" aria-labelledby="contact-heading">
+                
+                            <p class="intro-text">
+                                Whether part-time or project-based, I'm aiming to create sustainable, impactful change in the shortest amount of time.
+                            </p>
+                
+                            <div class="contact-grid">
+                                <!-- Consulting and Advisory Bubble -->
+                                <article class="contact-bubble" tabindex="0" onclick="window.open('#consulting', '_self')" onkeydown="if(event.key==='Enter') window.open('#consulting', '_self')">
+                                    <div class="icon" aria-hidden="true">💼</div>
+                                    <h3>Consulting and Advisory</h3>
+                                    <p>I'll nest into your team, and organize the team across a specific goal or time period.</p>
+                                </article>
+                
+                                <!-- Fractional roles Bubble -->
+                                <article class="contact-bubble" tabindex="0" onclick="window.open('#fractional', '_self')" onkeydown="if(event.key==='Enter') window.open('#fractional', '_self')">
+                                    <div class="icon" aria-hidden="true">👥</div>
+                                    <h3>Fractional roles</h3>
+                                    <p>When teams need to be built up or set up.</p>
+                                </article>
+                
+                                <!-- Roadmap building Bubble -->
+                                <article class="contact-bubble" tabindex="0" onclick="window.open('#roadmap', '_self')" onkeydown="if(event.key==='Enter') window.open('#roadmap', '_self')">
+                                    <div class="icon" aria-hidden="true">🗺️</div>
+                                    <h3>Roadmap building and goal setting</h3>
+                                    <p>Strategic planning to build a clear roadmap and action oriented goals.</p>
+                                </article>
+                
+                                <!-- Team Culture Building Bubble -->
+                                <article class="contact-bubble" tabindex="0" onclick="window.open('#culture', '_self')" onkeydown="if(event.key==='Enter') window.open('#culture', '_self')">
+                                    <div class="icon" aria-hidden="true">🌱</div>
+                                    <h3>Team Culture Building (PED)</h3>
+                                    <p>Establishing a goal oriented and collaborative environment for your team.</p>
+                                </article>
+                
+                                <!-- Project work Bubble -->
+                                <article class="contact-bubble" tabindex="0" onclick="window.open('#project', '_self')" onkeydown="if(event.key==='Enter') window.open('#project', '_self')">
+                                    <div class="icon" aria-hidden="true">📋</div>
+                                    <h3>Project work</h3>
+                                    <p>Defining and scoping, or advising specific projects alone or with a team.</p>
+                                </article>
+                            </div>
+                
+                            <a href="mailto:cho.mira@gmail.com" class="email-button" aria-label="Send me an email">
+                                Get in touch via email
+                            </a>
+                        </section>
+                    
+
+
+
+
+
+
+
 
         <section id="contact" class="py-20 bg-muted">
             <div class="container">
@@ -648,10 +787,6 @@
                 <body>
                     <main>
                         <section id="contact" class="container" aria-labelledby="contact-heading">
-                            <div class="section-header">
-                                <span class="dot" aria-hidden="true"></span>
-                                <h2 id="contact-heading">How to engage with me</h2>
-                            </div>
                 
                             <p class="intro-text">
                                 Whether part-time or project-based, I'm aiming to create sustainable, impactful change in the shortest amount of time.
@@ -694,7 +829,7 @@
                                 </article>
                             </div>
                 
-                            <a href="mailto:your.email@example.com" class="email-button" aria-label="Send me an email">
+                            <a href="mailto:cho.mira@gmail.com" class="email-button" aria-label="Send me an email">
                                 Get in touch via email
                             </a>
                         </section>
@@ -702,11 +837,6 @@
 
     <footer class="bg-muted py-8">
         <div class="container">
-            <div class="grid gap-8 md:grid-cols-3">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Your Name</h3>
-                    <p class="text-muted">Helping businesses transform their digital presence with strategic design and development solutions.</p>
-                </div>
                 <div>
                     <h3 class="text-lg font-medium mb-4">Quick Links</h3>
                     <nav>
@@ -730,9 +860,9 @@
                 </div>
             </div>
             <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm text-muted">&copy; 2023 Your Name. All rights reserved.</p>
+                <p class="text-sm text-muted">&copy; 2025 Mira Cho. All rights reserved.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="text-sm text-muted hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="text-sm text-muted hover:text-primary">Privacy Policy </a>
                     <a href="#" class="text-sm text-muted hover:text-primary">Terms of Service</a>
                 </div>
             </div>

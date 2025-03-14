@@ -1,15 +1,445 @@
 
 
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>Intro</title>
-   </head>
-   <body>
-      <h1>Hello, I'm Mira ⭐️</h1>
-      <p>How was your day? 🎉</p>
-      <p>I like the drums. Like, really like them.</p>
-      <a href="./about">see the other pages</a>
-   </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Website</title>
+    <style>
+        /* Base styles */
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --background: #ffffff;
+            --foreground: #020817;
+            --muted: #f1f5f9;
+            --muted-foreground: #64748b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            color: var(--foreground);
+            background-color: var(--background);
+        }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .grid { display: grid; }
+        .gap-6 { gap: 1.5rem; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        .text-center { text-align: center; }
+        .mb-12 { margin-bottom: 3rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mt-4 { margin-top: 1rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .bg-muted { background-color: var(--muted); }
+        .text-muted { color: var(--muted-foreground); }
+
+        /* Header styles */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--background);
+            z-index: 10;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        nav ul { list-style: none; display: flex; }
+        nav ul li { margin-left: 1.5rem; }
+        nav ul li a { text-decoration: none; color: var(--foreground); }
+        .mobile-menu-button { display: none; }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover { background-color: var(--primary-dark); }
+
+        /* Section styles */
+        section { padding: 4rem 0; }
+        h2 { font-size: 2.25rem; margin-bottom: 1rem; }
+        .section-title-bar {
+            width: 3rem;
+            height: 0.25rem;
+            background-color: var(--primary);
+            margin: 1rem auto;
+        }
+
+        /* Responsive grid */
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 767px) {
+            nav ul { display: none; }
+            .mobile-menu-button { display: block; }
+            .mobile-menu-open nav ul {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--background);
+                padding: 1rem;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .mobile-menu-open nav ul li { margin: 0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container flex items-center justify-between" style="height: 4rem;">
+            <a href="#" class="text-xl font-bold">Your Name</a>
+            <nav>
+                <button class="mobile-menu-button">Menu</button>
+                <ul>
+                    <li><a href="#intro">Home</a></li>
+                    <li><a href="#bio">About</a></li>
+                    <li><a href="#prior-work">Work</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="intro" class="py-20">
+            <div class="container">
+                <div class="grid gap-6 md:grid-cols-2 items-center">
+                    <div>
+                        <h1 class="text-4xl font-bold mb-4">Hello, I'm <span style="color: var(--primary);">Your Name</span></h1>
+                        <p class="text-xl text-muted mb-4">I help businesses transform their digital presence with strategic design and development solutions.</p>
+                        <div>
+                            <a href="#contact" class="btn">Work with me</a>
+                            <a href="#prior-work" class="btn" style="background-color: transparent; color: var(--foreground); border: 1px solid var(--foreground); margin-left: 0.5rem;">View my work</a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400" alt="Professional headshot" class="rounded-lg" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bio" class="py-20 bg-muted">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2>About Me</h2>
+                    <div class="section-title-bar"></div>
+                    <p class="text-muted">A brief introduction to my background, expertise, and what drives me.</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <img src="https://placehold.co/500x700" alt="Professional portrait" class="rounded-lg" style="width: 100%; height: auto; margin-bottom: 1rem;">
+                        <div class="flex justify-center" style="gap: 1rem;">
+                            <img src="https://placehold.co/100x100" alt="Additional photo 1" class="rounded-lg" style="width: 100px; height: 100px; object-fit: cover;">
+                            <img src="https://placehold.co/100x100" alt="Additional photo 2" class="rounded-lg" style="width: 100px; height: 100px; object-fit: cover;">
+                            <img src="https://placehold.co/100x100" alt="Additional photo 3" class="rounded-lg" style="width: 100px; height: 100px; object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold">My Story</h3>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. I've spent the last decade helping businesses transform their digital presence.</p>
+                        <p class="text-muted">My approach combines strategic thinking with creative problem-solving to deliver results that exceed expectations. I believe in creating meaningful experiences that connect brands with their audiences.</p>
+                        <div class="grid gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-bold">Professional Experience</h4>
+                                <p class="text-sm text-muted">10+ years of industry experience working with leading brands</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-bold">Education</h4>
+                                <p class="text-sm text-muted">Master's degree in relevant field from prestigious university</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-bold">Achievements</h4>
+                                <p class="text-sm text-muted">Industry recognition and awards for exceptional work</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prior-work" class="py-20">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2>Prior Work</h2>
+                    <div class="section-title-bar"></div>
+                    <p class="text-muted">A showcase of selected projects that demonstrate my expertise and approach.</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="Project One" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2">Project One</h3>
+                            <p class="text-muted mb-4">A brief description of the project and your role in it.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-muted text-sm px-2 py-1 rounded">Web Design</span>
+                                <span class="bg-muted text-sm px-2 py-1 rounded">Development</span>
+                                <span class="bg-muted text-sm px-2 py-1 rounded">UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="Project Two" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2">Project Two</h3>
+                            <p class="text-muted mb-4">A brief description of the project and your role in it.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-muted text-sm px-2 py-1 rounded">Branding</span>
+                                <span class="bg-muted text-sm px-2 py-1 rounded">Strategy</span>
+                                <span class="bg-muted text-sm px-2 py-1 rounded">UI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="Project Three" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div class="p-4">
+                            <h3 class="font-bold text-xl mb-2">Project Three</h3>
+                            <p class="text-muted mb-4">A brief description of the project and your role in it.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-muted text-sm px-2 py-1 rounded">Marketing</span>
+                                <span class="bg-muted text-sm px-2 py-1 rounded">Content</span>
+                                <span class="bg-muted text-sm px-2 py-1 rounded">SEO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies" class="py-20 bg-muted">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2>Case Studies</h2>
+                    <div class="section-title-bar"></div>
+                    <p class="text-muted">Detailed examples of how I've helped clients overcome challenges and achieve their goals.</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Client Success Story</h3>
+                        <p class="text-muted mb-4">Company Name</p>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold">The Challenge</h4>
+                                <p class="text-muted">The client faced significant challenges with their digital presence, including outdated design and poor user experience.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">The Solution</h4>
+                                <p class="text-muted">I developed a comprehensive strategy that included a complete redesign of their website, focusing on user experience and conversion optimization.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">The Results</h4>
+                                <p class="text-muted">The new website resulted in a 40% increase in conversions and a 25% decrease in bounce rate within the first three months.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn mt-4">View Full Case Study</a>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400" alt="Case Study Image" class="rounded-lg" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2>What Can I Do For You</h2>
+                    <div class="section-title-bar"></div>
+                    <p class="text-muted">I offer a range of services designed to help you achieve your business goals and stand out in your industry.</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-4">Service Category 1</h3>
+                        <p class="text-muted mb-4">A comprehensive description of this service category and how it benefits clients.</p>
+                        <ul class="space-y-2">
+                            <li>Key feature or benefit 1</li>
+                            <li>Key feature or benefit 2</li>
+                            <li>Key feature or benefit 3</li>
+                            <li>Key feature or benefit 4</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-4">Service Category 2</h3>
+                        <p class="text-muted mb-4">A comprehensive description of this service category and how it benefits clients.</p>
+                        <ul class="space-y-2">
+                            <li>Key feature or benefit 1</li>
+                            <li>Key feature or benefit 2</li>
+                            <li>Key feature or benefit 3</li>
+                            <li>Key feature or benefit 4</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-4">Service Category 3</h3>
+                        <p class="text-muted mb-4">A comprehensive description of this service category and how it benefits clients.</p>
+                        <ul class="space-y-2">
+                            <li>Key feature or benefit 1</li>
+                            <li>Key feature or benefit 2</li>
+                            <li>Key feature or benefit 3</li>
+                            <li>Key feature or benefit 4</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <p class="text-muted mb-4">Not sure which service is right for you? Let's discuss your specific needs and goals to find the perfect solution.</p>
+                    <a href="#contact" class="btn">Schedule a Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-muted">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2>How to Engage With Me</h2>
+                    <div class="section-title-bar"></div>
+                    <p class="text-muted">Ready to start a project? Get in touch to discuss how we can work together to achieve your goals.</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Send Me a Message</h3>
+                        <form class="space-y-4">
+                            <div class="grid gap-4 sm:grid-cols-2">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                                    <input type="text" id="name" name="name" class="w-full p-2 border rounded" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full p-2 border rounded" placeholder="Your email">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full p-2 border rounded" placeholder="Project inquiry">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full p-2 border rounded" placeholder="Tell me about your project"></textarea>
+                            </div>
+                            <button type="submit" class="btn w-full">Send Message</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-sm text-muted">your.email@example.com</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-medium">Phone</h4>
+                                <p class="text-sm text-muted">+1 (555) 123-4567</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-sm text-muted">City, Country</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-medium">Working Hours</h4>
+                                <p class="text-sm text-muted">Mon-Fri: 9AM - 5PM</p>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h3 class="text-xl font-bold mb-4">My Process</h3>
+                            <ol class="space-y-4">
+                                <li class="flex gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">1</div>
+                                    <div>
+                                        <h4 class="font-medium">Initial Consultation</h4>
+                                        <p class="text-sm text-muted">We'll discuss your goals, challenges, and vision for the project.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">2</div>
+                                    <div>
+                                        <h4 class="font-medium">Proposal & Planning</h4>
+                                        <p class="text-sm text-muted">I'll create a detailed proposal outlining the scope, timeline, and deliverables.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">3</div>
+                                    <div>
+                                        <h4 class="font-medium">Execution & Collaboration</h4>
+                                        <p class="text-sm text-muted">We'll work together throughout the project with regular updates and feedback.</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-muted py-8">
+        <div class="container">
+            <div class="grid gap-8 md:grid-cols-3">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Your Name</h3>
+                    <p class="text-muted">Helping businesses transform their digital presence with strategic design and development solutions.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Quick Links</h3>
+                    <nav>
+                        <ul class="space-y-2">
+                            <li><a href="#intro" class="text-muted hover:text-primary">Home</a></li>
+                            <li><a href="#bio" class="text-muted hover:text-primary">About</a></li>
+                            <li><a href="#prior-work" class="text-muted hover:text-primary">Work</a></li>
+                            <li><a href="#services" class="text-muted hover:text-primary">Services</a></li>
+                            <li><a href="#contact" class="text-muted hover:text-primary">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-muted hover:text-primary">Facebook</a>
+                        <a href="#" class="text-muted hover:text-primary">Twitter</a>
+                        <a href="#" class="text-muted hover:text-primary">LinkedIn</a>
+                        <a href="#" class="text-muted hover:text-primary">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-muted">&copy; 2023 Your Name. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-sm text-muted hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="text-sm text-muted hover:text-primary">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const header = document.querySelector('header');
+        mobileMenuButton.addEventListener('click', () => {
+            header.classList.toggle('mobile-menu-open');
+        });
+    </script>
+</body>
 </html>
-🐶

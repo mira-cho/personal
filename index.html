@@ -1,72 +1,184 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello! It's Mira.</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Base styles */
+        /* Base styles and variables */
         :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
+            --primary: #d8947c;
+            --primary-dark: #c27a62;
+            --secondary: #f2cfc2;
+            --secondary-hover: #eabdad;
             --background: #ffffff;
-            --foreground: #020817;
-            --muted: #f1f5f9;
-            --muted-foreground: #64748b;
+            --foreground: #333333;
+            --muted: #f9f5f3;
+            --muted-foreground: #7d7068;
+            --border: #e9e0dc;
+            --radius: 0.5rem;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* Reset and global styles */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.5;
+            font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: var(--foreground);
             background-color: var(--background);
         }
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--foreground);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Layout utilities */
+        .container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 1.5rem; 
+        }
+        
         .flex { display: flex; }
         .items-center { align-items: center; }
         .justify-between { justify-content: space-between; }
         .grid { display: grid; }
+        .gap-4 { gap: 1rem; }
         .gap-6 { gap: 1.5rem; }
+        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
         .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
         .text-center { text-align: center; }
-        .mb-12 { margin-bottom: 3rem; }
         .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-12 { margin-bottom: 3rem; }
         .mt-4 { margin-top: 1rem; }
+        .mt-8 { margin-top: 2rem; }
         .space-y-4 > * + * { margin-top: 1rem; }
-        .rounded-lg { border-radius: 0.5rem; }
-        .bg-muted { background-color: var(--muted); }
-        .text-muted { color: var(--muted-foreground); }
+        .rounded-lg { border-radius: var(--radius); }
+        .shadow { box-shadow: var(--shadow); }
+        .border-t { border-top: 1px solid var(--border); }
+        .pt-8 { padding-top: 2rem; }
 
-        /* Header styles */
+        /* Typography */
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        
+        .text-xl { font-size: 1.25rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-sm { font-size: 0.875rem; }
+        .font-bold { font-weight: 700; }
+        .text-primary { color: var(--primary); }
+        .text-muted { color: var(--muted-foreground); }
+        
+        /* Background colors */
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-muted { background-color: var(--muted); }
+        .bg-white { background-color: white; }
+
+        /* Header and navigation */
         header {
             position: sticky;
             top: 0;
             background-color: var(--background);
             z-index: 10;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 0;
         }
-        nav ul { list-style: none; display: flex; }
-        nav ul li { margin-left: 1.5rem; }
-        nav ul li a { text-decoration: none; color: var(--foreground); }
-        .mobile-menu-button { display: none; }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+        }
+        
+        nav ul li { 
+            margin-left: 1.5rem; 
+        }
+        
+        nav ul li a { 
+            text-decoration: none; 
+            color: var(--foreground);
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-button { 
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--foreground);
+            font-family: 'Poppins', sans-serif;
+        }
 
         /* Button styles */
         .btn {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             background-color: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 0.25rem;
-            transition: background-color 0.3s ease;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
         }
-        .btn:hover { background-color: var(--primary-dark); }
+        
+        .btn:hover { 
+            background-color: var(--primary-dark); 
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--foreground);
+            border: 1px solid var(--foreground);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--muted);
+            color: var(--foreground);
+        }
 
         /* Section styles */
-        section { padding: 4rem 0; }
-        h2 { font-size: 2.25rem; margin-bottom: 1rem; }
+        section { 
+            padding: 5rem 0; 
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--muted);
+        }
+        
         .section-title-bar {
             width: 3rem;
             height: 0.25rem;
@@ -74,13 +186,162 @@
             margin: 1rem auto;
         }
 
-        /* Responsive grid */
+        /* Logo grid */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+        }
+        
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            transition: var(--transition);
+        }
+        
+        .logo-container:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .logo-description {
+            text-align: left;
+            font-size: 0.9rem;
+            max-width: 180px;
+        }
+
+        /* Services grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .service-bubble {
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+        }
+        
+        .service-bubble:hover, 
+        .service-bubble:focus {
+            background-color: var(--secondary-hover);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .service-bubble h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+        
+        .service-bubble p {
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+
+        /* Contact grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .contact-bubble {
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+        }
+        
+        .contact-bubble:hover, 
+        .contact-bubble:focus {
+            background-color: var(--secondary-hover);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-bubble h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .contact-bubble p {
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+        
+        .contact-bubble .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Accessibility focus styles */
+        .service-bubble:focus-visible, 
+        .contact-bubble:focus-visible, 
+        .btn:focus-visible {
+            outline: 3px solid #4a90e2;
+            outline-offset: 2px;
+        }
+
+        /* Responsive styles */
         @media (min-width: 768px) {
             .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md\:flex-row { flex-direction: row; }
+            .md\:mt-0 { margin-top: 0; }
         }
-        @media (max-width: 767px) {
-            nav ul { display: none; }
-            .mobile-menu-button { display: block; }
+        
+        @media (max-width: 1200px) {
+            .logo-grid {
+                grid-template-columns: repeat(3, 1fr);
+                justify-items: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            
+            .logo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            nav ul { 
+                display: none; 
+            }
+            
+            .mobile-menu-button { 
+                display: block; 
+            }
+            
             .mobile-menu-open nav ul {
                 display: flex;
                 flex-direction: column;
@@ -92,14 +353,36 @@
                 padding: 1rem;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
-            .mobile-menu-open nav ul li { margin: 0.5rem 0; }
+            
+            .mobile-menu-open nav ul li { 
+                margin: 0.5rem 0; 
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container flex items-center justify-between" style="height: 4rem;">
-            <a href="#" class="text-xl font-bold">Mira</a>
+        <div class="container flex items-center justify-between">
+            <a href="#" class="text-xl font-bold text-primary">Mira</a>
             <nav>
                 <button class="mobile-menu-button">Menu</button>
                 <ul>
@@ -119,22 +402,19 @@
             <div class="container">
                 <div class="grid gap-6 md:grid-cols-2 items-center">
                     <div>
-                        <h1 class="text-4xl font-bold mb-4">Hi, I'm <span style="color: var(--primary);">Mira</span></h1>
+                        <h1 class="mb-4">Hi, I'm <span class="text-primary">Mira</span></h1>
                         <p class="text-xl text-muted mb-4">I build digital product and strategy teams at emerging companies with a good idea, and take them to scale.</p>
                         <div>
                             <a href="#contact" class="btn">Work with me</a>
-                            <a href="#prior-work" class="btn" style="background-color: transparent; color: var(--foreground); border: 1px solid var(--foreground); margin-left: 0.5rem;">View my work</a>
+                            <a href="#prior-work" class="btn btn-outline" style="margin-left: 0.5rem;">View my work</a>
                         </div>
                     </div>
                     <div>
-                        <img src="headshot.png" alt="Professional headshot" class="rounded-lg" style="width: 100%; height: auto;">
+                        <img src="headshot.png" alt="Professional headshot" class="rounded-lg shadow">
                     </div>
                 </div>
             </div>
         </section>
-
-
-
 
         <section id="bio" class="py-20 bg-muted">
             <div class="container">
@@ -142,21 +422,20 @@
                     <h2>Bio</h2>
                     <div class="section-title-bar"></div>
                 </div>
-                    <div class="space-y-4">
-                        <h3 class="text-2xl font-bold">My Story</h3>
-                        <p class="text-muted">I help businesses create value through digital experiences, starting with a deep strategic lens, through design conception, and implementation with a developer team.</p>
-                        <p class="text-muted">I like it a lot when teams understand what the user and business goals are, and start moving in unison.</p>
-                        <div class="grid gap-4">
-                            <div class="bg-white p-4 rounded-lg shadow">
-                                <h3 class="font-bold">Professional Experience</h4>
-                                <p class="text-sm text-muted">15 years of industry experience working with leading brands</p>
-                            </div>
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold">My Story</h3>
+                    <p class="text-muted">I help businesses create value through digital experiences, starting with a deep strategic lens, through design conception, and implementation with a developer team.</p>
+                    <p class="text-muted">I like it a lot when teams understand what the user and business goals are, and start moving in unison.</p>
+                    <div class="grid gap-4 mt-8">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-bold">Professional Experience</h3>
+                            <p class="text-sm text-muted">15 years of industry experience working with leading brands</p>
                         </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-
-        
         <section id="prior-work" class="py-20">
             <div class="container">
                 <div class="text-center mb-12">
@@ -164,125 +443,11 @@
                     <div class="section-title-bar"></div>
                     <p class="text-muted">...over the last 15ish years</p>
                 </div>
-        
-     
-            <style>
-                /* Base styles */
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
                 
-                body {
-                    font-family: 'Arial', sans-serif;
-                    background-color: #f0f0f0;
-                    color: #333;
-                    line-height: 1.6;
-                    padding: 20px;
-                }
-                
-                /* Logo section container */
-                .logo-section {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    padding: 40px 20px;
-                }
-                
-                /* Section header */
-                .section-header {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 30px;
-                    border-bottom: 1px solid #ccc;
-                    padding-bottom: 15px;
-                }
-                
-                .section-header .dot {
-                    width: 16px;
-                    height: 16px;
-                    background-color: #2c4c25;
-                    border-radius: 50%;
-                    margin-right: 15px;
-                }
-                
-                .section-header h2 {
-                    font-size: 32px;
-                    color: #2c4c25;
-                    font-weight: 500;
-                }
-                
-                /* Logo grid */
-                .logo-grid {
-                    display: grid;
-                    grid-template-columns: repeat(5, 1fr);
-                    gap: 30px;
-                }
-                
-                /* Logo item */
-                .logo-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
-                
-                .logo-container {
-                    width: 180px;
-                    height: 180px;
-                    border-radius: 50%;
-                    overflow: hidden;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-bottom: 20px;
-                }
-                
-                .logo-container img {
-                    max-width: 100%;
-                    max-height: 100%;
-                    object-fit: cover;
-                }
-                
-                .logo-description {
-                    text-align: left;
-                    font-size: 16px;
-                    max-width: 180px;
-                }
-                
-                /* Responsive styles */
-                @media (max-width: 1200px) {
-                    .logo-grid {
-                        grid-template-columns: repeat(3, 1fr);
-                        justify-items: center;
-                    }
-                }
-                
-                @media (max-width: 768px) {
-                    .logo-grid {
-                        grid-template-columns: repeat(2, 1fr);
-                    }
-                }
-                
-                @media (max-width: 480px) {
-                    .logo-grid {
-                        grid-template-columns: 1fr;
-                    }
-                    
-                    .logo-container {
-                        width: 150px;
-                        height: 150px;
-                    }
-                }
-            </style>
-        </head>
-    
-    
-        <body>
-            <section class="logo-section">
                 <div class="logo-grid">
                     <!-- Logo 1 -->
                     <div class="logo-item">
-                        <div class="logo-container" style="background-color: #2c4c25;">
+                        <div class="logo-container" style="background-color: var(--primary);">
                             <img src="seed.png" alt="Seed Logo">
                         </div>
                         <div class="logo-description">
@@ -312,7 +477,7 @@
                     
                     <!-- Logo 4 -->
                     <div class="logo-item">
-                        <div class="logo-container" style="background-color: #4caf50;">
+                        <div class="logo-container" style="background-color: var(--secondary);">
                             <img src="graze.png" alt="Graze Logo">
                         </div>
                         <div class="logo-description">
@@ -330,466 +495,160 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </body>
-        </html>
-
-
-<!-- this is the beginning of the What I can do for you / Services section -->
-
-<style>
-    :root {
-        --primary-color: #4a6741;
-        --bubble-bg: #f5f9e9;
-        --text-color: #333;
-        --hover-color: #e0e9c5;
-        --border-color: #ddd;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-        background-color: #f0f0f0;
-        color: var(--text-color);
-        line-height: 1.6;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    .section-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 1rem;
-    }
-
-    .section-header .dot {
-        width: 16px;
-        height: 16px;
-        background-color: var(--primary-color);
-        border-radius: 50%;
-        margin-right: 1rem;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-        font-weight: 600;
-    }
-
-    .intro-text {
-        font-size: 1.25rem;
-        margin-bottom: 2.5rem;
-        max-width: 800px;
-    }
-
-    .services-grid {
-        display: grid;
-        /* Adjusted to fit more bubbles per row since they're smaller */
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-bottom: 2.5rem;
-    }
-
-    .service-bubble {
-        background-color: var(--bubble-bg);
-        border-radius: 6px;
-        /* Reduced padding by 50% */
-        padding: 1rem;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        border: 1px solid var(--border-color);
-    }
-
-    .service-bubble:hover, .service-bubble:focus {
-        background-color: var(--hover-color);
-        transform: translateY(-3px);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .service-bubble h3 {
-        /* Reduced font size by ~50% */
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-        color: var(--primary-color);
-        font-weight: 600;
-    }
-
-    .service-bubble p {
-        /* Reduced font size by ~50% */
-        font-size: 0.8rem;
-        flex-grow: 1;
-    }
-
-    .cta-button {
-        display: block;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-        padding: 1rem;
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1.1rem;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover, .cta-button:focus {
-        background-color: #3a5233;
-    }
-
-    /* Accessibility focus styles */
-    .service-bubble:focus-visible, .cta-button:focus-visible {
-        outline: 3px solid #4a90e2;
-        outline-offset: 2px;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .services-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .section-header h2 {
-            font-size: 1.75rem;
-        }
-        
-        .intro-text {
-            font-size: 1.1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .services-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-  
-
- <!-- My case studies-->
- <section id="case-studies" class="py-20">
-    <div class="container">
-        <div class="text-center mb-12">
-            <h2>Case Studies</h2>
-            <div class="section-title-bar"></div>
-            <p class="text-muted">Coming Soon</p>
-        </div>
-  <!-- left blank for now as i come up with these-->
-
-
-
-
- <!-- My offerings-->
-
- <section id="services" class="py-20">
-    <div class="container">
-        <div class="text-center mb-12">
-            <h2>What I can do for you</h2>
-            <div class="section-title-bar"></div>
-        </div>
-
-            <div class="services-grid">
-                <!-- PED Teams Setup -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#ped-teams', '_self')" onkeydown="if(event.key==='Enter') window.open('#ped-teams', '_self')">
-                    <h3>PED Team Setup</h3>
-                    <p>Setting up new Product Engineering & Design teams for success with the right structure, processes, and culture.</p>
-                </article>
-
-                <!-- Experimentation Frameworks -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#experimentation', '_self')" onkeydown="if(event.key==='Enter') window.open('#experimentation', '_self')">
-                    <h3>Experimentation Frameworks</h3>
-                    <p>Establishing data-driven experimentation frameworks that enable teams to validate ideas quickly.</p>
-                </article>
-
-                <!-- Organizational Connection -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#org-connection', '_self')" onkeydown="if(event.key==='Enter') window.open('#org-connection', '_self')">
-                    <h3>Cross-Organizational Alignment</h3>
-                    <p>Connecting product initiatives to the rest of the organization to ensure seamless collaboration.</p>
-                </article>
-
-                <!-- Prioritization -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#prioritization', '_self')" onkeydown="if(event.key==='Enter') window.open('#prioritization', '_self')">
-                    <h3>Strategic Prioritization</h3>
-                    <p>Prioritizing and rallying teams around key objectives to focus efforts on high-impact initiatives.</p>
-                </article>
-
-                <!-- Product Launches -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#product-launches', '_self')" onkeydown="if(event.key==='Enter') window.open('#product-launches', '_self')">
-                    <h3>Product Launch Management</h3>
-                    <p>Managing product launches with comprehensive planning and effective go-to-market strategies.</p>
-                </article>
-
-                <!-- Roadmap Alignment -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#roadmap-alignment', '_self')" onkeydown="if(event.key==='Enter') window.open('#roadmap-alignment', '_self')">
-                    <h3>Roadmap Alignment</h3>
-                    <p>Aligning the product roadmap with overarching goals and development cycles for strategic coherence.</p>
-                </article>
-
-                <!-- Goal-Oriented Team Building -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#team-building', '_self')" onkeydown="if(event.key==='Enter') window.open('#team-building', '_self')">
-                    <h3>Goal-Oriented Team Building</h3>
-                    <p>Building cohesive teams focused on achieving specific goals through targeted development.</p>
-                </article>
-
-                <!-- Project Carve-outs -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#project-carveouts', '_self')" onkeydown="if(event.key==='Enter') window.open('#project-carveouts', '_self')">
-                    <h3>Project Carve-outs</h3>
-                    <p>Facilitating project carve-outs to create focused initiatives with clear boundaries and ownership.</p>
-                </article>
-
-                <!-- Project Definition -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#project-definition', '_self')" onkeydown="if(event.key==='Enter') window.open('#project-definition', '_self')">
-                    <h3>Project Definition</h3>
-                    <p>Defining and scoping specific projects with precision to ensure clear objectives and deliverables.</p>
-                </article>
-
-                <!-- Discovery Acceleration -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#discovery-acceleration', '_self')" onkeydown="if(event.key==='Enter') window.open('#discovery-acceleration', '_self')">
-                    <h3>Discovery Acceleration</h3>
-                    <p>Accelerating discovery and software delivery cadences to reduce time-to-market while maintaining quality.</p>
-                </article>
-
-                <!-- Development Cycle Acceleration -->
-                <article class="service-bubble" tabindex="0" onclick="window.open('#dev-acceleration', '_self')" onkeydown="if(event.key==='Enter') window.open('#dev-acceleration', '_self')">
-                    <h3>Development Cycle Acceleration</h3>
-                    <p>Accelerating development cycles through process optimization and efficient resource allocation.</p>
-                </article>
             </div>
-
-          
         </section>
 
+        <section id="case-studies" class="py-20 bg-muted">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2>Case Studies</h2>
+                    <div class="section-title-bar"></div>
+                    <p class="text-muted">Coming Soon</p>
+                </div>
+                <!-- Left blank for future case studies -->
+            </div>
+        </section>
 
+        <section id="services" class="py-20">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2>What I can do for you</h2>
+                    <div class="section-title-bar"></div>
+                </div>
 
+                <div class="services-grid">
+                    <!-- PED Teams Setup -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#ped-teams', '_self')" onkeydown="if(event.key==='Enter') window.open('#ped-teams', '_self')">
+                        <h3>PED Team Setup</h3>
+                        <p>Setting up new Product Engineering & Design teams for success with the right structure, processes, and culture.</p>
+                    </article>
 
+                    <!-- Experimentation Frameworks -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#experimentation', '_self')" onkeydown="if(event.key==='Enter') window.open('#experimentation', '_self')">
+                        <h3>Experimentation Frameworks</h3>
+                        <p>Establishing data-driven experimentation frameworks that enable teams to validate ideas quickly.</p>
+                    </article>
+
+                    <!-- Organizational Connection -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#org-connection', '_self')" onkeydown="if(event.key==='Enter') window.open('#org-connection', '_self')">
+                        <h3>Cross-Organizational Alignment</h3>
+                        <p>Connecting product initiatives to the rest of the organization to ensure seamless collaboration.</p>
+                    </article>
+
+                    <!-- Prioritization -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#prioritization', '_self')" onkeydown="if(event.key==='Enter') window.open('#prioritization', '_self')">
+                        <h3>Strategic Prioritization</h3>
+                        <p>Prioritizing and rallying teams around key objectives to focus efforts on high-impact initiatives.</p>
+                    </article>
+
+                    <!-- Product Launches -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#product-launches', '_self')" onkeydown="if(event.key==='Enter') window.open('#product-launches', '_self')">
+                        <h3>Product Launch Management</h3>
+                        <p>Managing product launches with comprehensive planning and effective go-to-market strategies.</p>
+                    </article>
+
+                    <!-- Roadmap Alignment -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#roadmap-alignment', '_self')" onkeydown="if(event.key==='Enter') window.open('#roadmap-alignment', '_self')">
+                        <h3>Roadmap Alignment</h3>
+                        <p>Aligning the product roadmap with overarching goals and development cycles for strategic coherence.</p>
+                    </article>
+
+                    <!-- Goal-Oriented Team Building -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#team-building', '_self')" onkeydown="if(event.key==='Enter') window.open('#team-building', '_self')">
+                        <h3>Goal-Oriented Team Building</h3>
+                        <p>Building cohesive teams focused on achieving specific goals through targeted development.</p>
+                    </article>
+
+                    <!-- Project Carve-outs -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#project-carveouts', '_self')" onkeydown="if(event.key==='Enter') window.open('#project-carveouts', '_self')">
+                        <h3>Project Carve-outs</h3>
+                        <p>Facilitating project carve-outs to create focused initiatives with clear boundaries and ownership.</p>
+                    </article>
+
+                    <!-- Project Definition -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#project-definition', '_self')" onkeydown="if(event.key==='Enter') window.open('#project-definition', '_self')">
+                        <h3>Project Definition</h3>
+                        <p>Defining and scoping specific projects with precision to ensure clear objectives and deliverables.</p>
+                    </article>
+
+                    <!-- Discovery Acceleration -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#discovery-acceleration', '_self')" onkeydown="if(event.key==='Enter') window.open('#discovery-acceleration', '_self')">
+                        <h3>Discovery Acceleration</h3>
+                        <p>Accelerating discovery and software delivery cadences to reduce time-to-market while maintaining quality.</p>
+                    </article>
+
+                    <!-- Development Cycle Acceleration -->
+                    <article class="service-bubble" tabindex="0" onclick="window.open('#dev-acceleration', '_self')" onkeydown="if(event.key==='Enter') window.open('#dev-acceleration', '_self')">
+                        <h3>Development Cycle Acceleration</h3>
+                        <p>Accelerating development cycles through process optimization and efficient resource allocation.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
         <section id="contact" class="py-20 bg-muted">
             <div class="container">
                 <div class="text-center mb-12">
                     <h2>How to Engage With Me</h2>
                     <div class="section-title-bar"></div>
+                </div>
                 
-                
-                
-                    <style>
-                        :root {
-                            --primary-color: #4a6741;
-                            --bubble-bg: #f5f9e9;
-                            --text-color: #333;
-                            --hover-color: #e0e9c5;
-                            --border-color: #ddd;
-                        }
-                
-                        * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        }
-                
-                        body {
-                            background-color: #f0f0f0;
-                            color: var(--text-color);
-                            line-height: 1.6;
-                        }
-                
-                        .container {
-                            max-width: 1200px;
-                            margin: 0 auto;
-                            padding: 2rem;
-                        }
-                
-                        .section-header {
-                            display: flex;
-                            align-items: center;
-                            margin-bottom: 1.5rem;
-                            border-bottom: 1px solid #ccc;
-                            padding-bottom: 1rem;
-                        }
-                
-                        .section-header .dot {
-                            width: 16px;
-                            height: 16px;
-                            background-color: var(--primary-color);
-                            border-radius: 50%;
-                            margin-right: 1rem;
-                        }
-                
-                        .section-header h2 {
-                            font-size: 2rem;
-                            font-weight: 600;
-                        }
-                
-                        .intro-text {
-                            font-size: 1.25rem;
-                            margin-bottom: 2.5rem;
-                            max-width: 800px;
-                        }
-                
-                        .contact-grid {
-                            display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                            gap: 1.5rem;
-                            margin-bottom: 2.5rem;
-                        }
-                
-                        .contact-bubble {
-                            background-color: var(--bubble-bg);
-                            border-radius: 8px;
-                            padding: 2rem;
-                            transition: all 0.3s ease;
-                            cursor: pointer;
-                            height: 100%;
-                            display: flex;
-                            flex-direction: column;
-                            border: 1px solid var(--border-color);
-                        }
-                
-                        .contact-bubble:hover, .contact-bubble:focus {
-                            background-color: var(--hover-color);
-                            transform: translateY(-5px);
-                            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                        }
-                
-                        .contact-bubble h3 {
-                            font-size: 1.5rem;
-                            margin-bottom: 1rem;
-                            color: var(--primary-color);
-                        }
-                
-                        .contact-bubble p {
-                            font-size: 1rem;
-                            flex-grow: 1;
-                        }
-                
-                        .contact-bubble .icon {
-                            font-size: 2rem;
-                            margin-bottom: 1rem;
-                            color: var(--primary-color);
-                        }
-                
-                        .email-button {
-                            display: block;
-                            width: 100%;
-                            max-width: 300px;
-                            margin: 0 auto;
-                            padding: 1rem;
-                            background-color: var(--primary-color);
-                            color: white;
-                            border: none;
-                            border-radius: 8px;
-                            font-size: 1.1rem;
-                            cursor: pointer;
-                            text-align: center;
-                            text-decoration: none;
-                            transition: background-color 0.3s ease;
-                        }
-                
-                        .email-button:hover, .email-button:focus {
-                            background-color: #3a5233;
-                        }
-                
-                        /* Accessibility focus styles */
-                        .contact-bubble:focus-visible, .email-button:focus-visible {
-                            outline: 3px solid #4a90e2;
-                            outline-offset: 2px;
-                        }
-                
-                        /* Responsive adjustments */
-                        @media (max-width: 768px) {
-                            .contact-grid {
-                                grid-template-columns: 1fr;
-                            }
-                            
-                            .section-header h2 {
-                                font-size: 1.75rem;
-                            }
-                            
-                            .intro-text {
-                                font-size: 1.1rem;
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <main>
-                        <section id="contact" class="container" aria-labelledby="contact-heading">
-                
-                            <p class="intro-text">
-                                Whether part-time or project-based, I'm aiming to create sustainable, impactful change in the shortest amount of time.
-                            </p>
-                
-                            <div class="contact-grid">
-                                <!-- Consulting and Advisory Bubble -->
-                                <article class="contact-bubble" tabindex="0" onclick="window.open('#consulting', '_self')" onkeydown="if(event.key==='Enter') window.open('#consulting', '_self')">
-                                    <div class="icon" aria-hidden="true">💼</div>
-                                    <h3>Consulting and Advisory</h3>
-                                    <p>I'll nest into your team, and organize the team across a specific goal or time period.</p>
-                                </article>
-                
-                                <!-- Fractional roles Bubble -->
-                                <article class="contact-bubble" tabindex="0" onclick="window.open('#fractional', '_self')" onkeydown="if(event.key==='Enter') window.open('#fractional', '_self')">
-                                    <div class="icon" aria-hidden="true">👥</div>
-                                    <h3>Fractional roles</h3>
-                                    <p>When teams need to be built up or set up.</p>
-                                </article>
-                
-                                <!-- Roadmap building Bubble -->
-                                <article class="contact-bubble" tabindex="0" onclick="window.open('#roadmap', '_self')" onkeydown="if(event.key==='Enter') window.open('#roadmap', '_self')">
-                                    <div class="icon" aria-hidden="true">🗺️</div>
-                                    <h3>Roadmap building and goal setting</h3>
-                                    <p>Strategic planning to build a clear roadmap and action oriented goals.</p>
-                                </article>
-                
-                                <!-- Team Culture Building Bubble -->
-                                <article class="contact-bubble" tabindex="0" onclick="window.open('#culture', '_self')" onkeydown="if(event.key==='Enter') window.open('#culture', '_self')">
-                                    <div class="icon" aria-hidden="true">🌱</div>
-                                    <h3>Team Culture Building (PED)</h3>
-                                    <p>Establishing a goal oriented and collaborative environment for your team.</p>
-                                </article>
-                
-                                <!-- Project work Bubble -->
-                                <article class="contact-bubble" tabindex="0" onclick="window.open('#project', '_self')" onkeydown="if(event.key==='Enter') window.open('#project', '_self')">
-                                    <div class="icon" aria-hidden="true">📋</div>
-                                    <h3>Project work</h3>
-                                    <p>Defining and scoping, or advising specific projects alone or with a team.</p>
-                                </article>
-                            </div>
-                
-                            <a href="mailto:cho.mira@gmail.com" class="email-button" aria-label="Send me an email">
-                                Get in touch via email
-                            </a>
-                        </section>
-                    
+                <p class="text-lg text-center mb-8 mx-auto" style="max-width: 800px;">
+                    Whether part-time or project-based, I'm aiming to create sustainable, impactful change in the shortest amount of time.
+                </p>
+
+                <div class="contact-grid">
+                    <!-- Consulting and Advisory Bubble -->
+                    <article class="contact-bubble" tabindex="0" onclick="window.open('#consulting', '_self')" onkeydown="if(event.key==='Enter') window.open('#consulting', '_self')">
+                        <div class="icon" aria-hidden="true">💼</div>
+                        <h3>Consulting and Advisory</h3>
+                        <p>I'll nest into your team, and organize the team across a specific goal or time period.</p>
+                    </article>
+
+                    <!-- Fractional roles Bubble -->
+                    <article class="contact-bubble" tabindex="0" onclick="window.open('#fractional', '_self')" onkeydown="if(event.key==='Enter') window.open('#fractional', '_self')">
+                        <div class="icon" aria-hidden="true">👥</div>
+                        <h3>Fractional roles</h3>
+                        <p>When teams need to be built up or set up.</p>
+                    </article>
+
+                    <!-- Roadmap building Bubble -->
+                    <article class="contact-bubble" tabindex="0" onclick="window.open('#roadmap', '_self')" onkeydown="if(event.key==='Enter') window.open('#roadmap', '_self')">
+                        <div class="icon" aria-hidden="true">🗺️</div>
+                        <h3>Roadmap building and goal setting</h3>
+                        <p>Strategic planning to build a clear roadmap and action oriented goals.</p>
+                    </article>
+
+                    <!-- Team Culture Building Bubble -->
+                    <article class="contact-bubble" tabindex="0" onclick="window.open('#culture', '_self')" onkeydown="if(event.key==='Enter') window.open('#culture', '_self')">
+                        <div class="icon" aria-hidden="true">🌱</div>
+                        <h3>Team Culture Building (PED)</h3>
+                        <p>Establishing a goal oriented and collaborative environment for your team.</p>
+                    </article>
+
+                    <!-- Project work Bubble -->
+                    <article class="contact-bubble" tabindex="0" onclick="window.open('#project', '_self')" onkeydown="if(event.key==='Enter') window.open('#project', '_self')">
+                        <div class="icon" aria-hidden="true">📋</div>
+                        <h3>Project work</h3>
+                        <p>Defining and scoping, or advising specific projects alone or with a team.</p>
+                    </article>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="mailto:cho.mira@gmail.com" class="btn" aria-label="Send me an email">
+                        Get in touch via email
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="bg-muted py-8">
         <div class="container">
-                <div>
-                
-                </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="border-t pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-sm text-muted">&copy; 2025 Mira Cho. All rights reserved.</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="text-sm text-muted hover:text-primary">Privacy Policy </a>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="text-sm text-muted hover:text-primary">Privacy Policy</a>
                     <a href="#" class="text-sm text-muted hover:text-primary">Terms of Service</a>
                 </div>
             </div>

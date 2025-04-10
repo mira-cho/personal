@@ -847,6 +847,36 @@
         mobileMenuButton.addEventListener('click', () => {
             header.classList.toggle('mobile-menu-open');
         });
+
+
+      // Case Study toggle
+      document.querySelectorAll('.case-study-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const card = header.parentElement;
+                const content = header.nextElementSibling;
+                const isExpanded = header.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle the current card
+                card.classList.toggle('active');
+                header.setAttribute('aria-expanded', !isExpanded);
+                
+                // Close other cards
+                document.querySelectorAll('.case-study-card').forEach(otherCard => {
+                    if (otherCard !== card && otherCard.classList.contains('active')) {
+                        otherCard.classList.remove('active');
+                        otherCard.querySelector('.case-study-header').setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+            
+            // Keyboard accessibility
+            header.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    header.click();
+                }
+            });
+        });
     </script>
 </body>
 </html>

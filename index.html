@@ -223,6 +223,81 @@
             max-width: 180px;
         }
 
+        /* Case Studies */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .case-study-card {
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        
+        .case-study-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .case-study-header h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        .case-study-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+        
+        .case-study-content p {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .case-study-card.active {
+            box-shadow: var(--shadow);
+        }
+        
+        .case-study-card.active .case-study-content {
+            max-height: 500px;
+            padding-bottom: 1.5rem;
+        }
+        
+        .case-study-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .case-study-card.active .case-study-icon {
+            transform: rotate(45deg);
+        }
+        
+        .case-study-stats {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .case-study-stats .stat {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
         /* Services grid */
         .services-grid {
             display: grid;
